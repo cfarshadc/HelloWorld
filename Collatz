@@ -1,0 +1,19 @@
+numbers = set ()
+def func (n, show = False):
+    # if show is true, it will show the path.
+    global numbers
+    if show:
+        print (" -> ",n,end="")
+    if not n in numbers:
+        numbers.add (n)
+    if n == 1:
+        return True
+    
+    if (n % 2) == 0:
+        return  (func (int (n/2), show))
+    else:
+        return (func (3*n + 1, show))
+for j in range (1000000000, 2000000000):
+    func (j, False)
+    if j%1000000==0:
+        print (j)
